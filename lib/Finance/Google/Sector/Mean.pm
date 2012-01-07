@@ -235,15 +235,31 @@ sub _as_text {
 1;
 __DATA__
 
+#!/usr/bin/perl
+package main;
 
-#print Dumper Intraday::Finance::NASDAQ::Analytics::vgetprofile($symbol);
-#my %x = Intraday::Finance::NASDAQ::Analytics::getsummary($symbol);
-#print Dumper %x;
-#print Dumper Intraday::Finance::NASDAQ::Analytics::getguruscreener($symbol);
-#print Dumper Intraday::Finance::NASDAQ::Analytics::getsymbolimages($symbol);
-#print Dumper Intraday::Finance::NASDAQ::Analytics::getprofile($symbol);
-#print Dumper Intraday::Finance::NASDAQ::Analytics::sectorsummary();
-#print Dumper Intraday::Finance::NASDAQ::Analytics::avgVolume($symbol,10);
-#print Dumper Intraday::Finance::NASDAQ::Analytics::getSectorSymbols(57629812,100);
+use Data::Dumper;
+use Finance::Optical::StrongBuy;
+use Finance::NASDAQ::Markets;
+use Finance::Google::Sector::Mean;
 
 
+
+
+my @sector = sectorsummary();
+
+my @idx = index();
+
+my @sec = sector();
+
+
+
+my $new = Finance::Optical::StrongBuy->new("/tmp");
+foreach my $symbol (qw/C BAC WFC WM F GE AAPL GOOG/){
+    $new->callCheck($symbol);
+}
+
+print Dumper [@idx,@sec,@sector ,$new];
+
+
+1;
