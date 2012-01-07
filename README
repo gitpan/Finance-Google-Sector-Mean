@@ -1,5 +1,5 @@
-Finance-Google-Sector-Mean version 0.01
-=======================================
+Finance-Google-Sector-Mean version 0.02
+======================================
 
 The README is used to introduce the module and provide instructions on
 how to install the module, any machine dependencies it may have (for
@@ -21,34 +21,69 @@ To install this module type the following:
    make test
    make install
 
-DEPENDENCIES
+
+
+RUN
+
+
+#!/usr/bin/perl
+package main;
+
+use Data::Dumper;
+use Finance::Optical::StrongBuy;
+use Finance::NASDAQ::Markets;
+use Finance::Google::Sector::Mean;
+
+
+
+
+my @sector = sectorsummary();
+
+my @idx = index();
+
+my @sec = sector();
+
+
+
+my $new = Finance::Optical::StrongBuy->new("/tmp");
+foreach my $symbol (qw/C BAC WFC WM F GE AAPL GOOG/){
+    $new->callCheck($symbol);
+}
+
+print Dumper [@idx,@sec,@sector ,$new];
+
+
+
+
+
 
 This module requires these other modules and libraries:
 
 
-use Statistics::Basic qw(:all);
-use List::Util qw(min max);
-use HTML::TreeBuilder;
-use LWP::Simple qw($ua get);
-
-then run
-
+#!/usr/bin/perl
 package main;
+
 use Data::Dumper;
-my $mean  = Finance::Google::Sector::sectorsummary();
+use Finance::Optical::StrongBuy;
+use Finance::NASDAQ::Markets;
+use Finance::Google::Sector::Mean;
 
-print Dumper $mean->{SectorChange}->{buffer};
-print Dumper $mean->{sectors};
+
+
+
+my @sector = sectorsummary();
+
+my @idx = index();
+
+my @sec = sector();
+
+
+
+my $new = Finance::Optical::StrongBuy->new("/tmp");
+foreach my $symbol (qw/C BAC WFC WM F GE AAPL GOOG/){
+    $new->callCheck($symbol);
+}
+
+print Dumper [@idx,@sec,@sector ,$new];
+
 1;
-
-COPYRIGHT AND LICENCE
-
-Put the correct copyright and licence information here.
-
-Copyright (C) 2012 by Hagen Geissler 
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.12.4 or,
-at your option, any later version of Perl 5 you may have available.
-
-
