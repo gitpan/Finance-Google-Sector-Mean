@@ -242,12 +242,12 @@ Finance::Google::Sector::Mean - Perl extension shows you the finance.google.com 
 
 =head1 SYNOPSIS
 
-use Finance::Google::Sector::Mean;
-use Data::Dumper;
+    use Finance::Google::Sector::Mean;
+    use Data::Dumper;
 
-my @sector = sectorsummary();
+    my @sector = sectorsummary();
 
-print Dumper [@sector];
+    print Dumper [@sector];
 
 =head1 DESCRIPTION
 
@@ -268,34 +268,34 @@ Finance::NASDAQ::Markets
 
 =head2 MORE
 
-#!/usr/bin/perl
-package main;
+    #!/usr/bin/perl
+    package main;
 
-use Data::Dumper;
-use Finance::Optical::StrongBuy;
-use Finance::NASDAQ::Markets;
-use Finance::Google::Sector::Mean;
-
-
-
-
-my @sector = sectorsummary();
-
-my @idx = index();
-
-my @sec = sector();
+    use Data::Dumper;
+    use Finance::Optical::StrongBuy;
+    use Finance::NASDAQ::Markets;
+    use Finance::Google::Sector::Mean;
 
 
 
-my $new = Finance::Optical::StrongBuy->new("/tmp");
-foreach my $symbol (qw/C BAC WFC WM F GE AAPL GOOG/){
-    $new->callCheck($symbol);
-}
 
-print Dumper [@idx,@sec,@sector ,$new];
+    my @sector = sectorsummary();
+
+    my @idx = index();
+
+    my @sec = sector();
 
 
-1;
+
+    my $new = Finance::Optical::StrongBuy->new("/tmp");
+    foreach my $symbol (qw/C BAC WFC WM F GE AAPL GOOG/){
+        $new->callCheck($symbol);
+    }
+
+    print Dumper [@idx,@sec,@sector ,$new];
+
+
+    1;
 
 =head1 AUTHOR
 
