@@ -2,63 +2,33 @@
 
 =head1 NAME
 
-Finance::Optical::StrongBuy;
+Finance::Google::Sector::Mean - Perl extension shows you the finance.google.com sectors and there realtime quote+performance grouped in [negative,positive,above average performance]
 
 =head1 SYNOPSIS
 
-#!/usr/bin/perl
-package main;
-
-use Data::Dumper;
-use Finance::Optical::StrongBuy;
-use Finance::NASDAQ::Markets;
 use Finance::Google::Sector::Mean;
-
-
-
+use Data::Dumper;
 
 my @sector = sectorsummary();
 
-my @idx = index();
-
-my @sec = sector();
-
-
-
-my $new = Finance::Optical::StrongBuy->new("/tmp");
-foreach my $symbol (qw/C BAC WFC WM F GE AAPL GOOG/){
-    $new->callCheck($symbol);
-}
-
-print Dumper [@idx,@sec,@sector ,$new];
-
-
-1;
+print Dumper [@sector];
 
 =head1 DESCRIPTION
 
-Stub documentation for Finance::NASDAQ::Markets, created by h2xs. It looks like the
-author of the extension was negligent enough to leave the stub
-unedited.
-
-Loads Sectors and Index quotes and changes
+shows you the finance.google.com sectors and there realtime quote+performance grouped in [negative,positive,above average performance]
+check out
+Finance::NASDAQ::Markets
+which gives additional sectors and indice's
 
 =head2 EXPORT
 
 None by default.
 
-
-
 =head1 SEE ALSO
 
-Mention other useful documentation such as the documentation of
-related modules or operating system documentation (such as man pages
-in UNIX), or any relevant external documentation such as RFCs or
-standards.
+Finance::Optical::StrongBuy
+Finance::NASDAQ::Markets
 
-If you have a mailing list set up for your module, mention it here.
-
-If you have a web site set up for your module, mention it here.
 
 =head1 AUTHOR
 
@@ -74,7 +44,5 @@ at your option, any later version of Perl 5 you may have available.
 
 
 =cut
-
-
 
 

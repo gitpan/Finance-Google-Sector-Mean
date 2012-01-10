@@ -234,6 +234,39 @@ sub _as_text {
 
 1;
 __DATA__
+# Below is stub documentation for your module. You'd better edit it!
+
+=head1 NAME
+
+Finance::Google::Sector::Mean - Perl extension shows you the finance.google.com sectors and there realtime quote+performance grouped in [negative,positive,above average performance]
+
+=head1 SYNOPSIS
+
+use Finance::Google::Sector::Mean;
+use Data::Dumper;
+
+my @sector = sectorsummary();
+
+print Dumper [@sector];
+
+=head1 DESCRIPTION
+
+shows you the finance.google.com sectors and there realtime quote+performance grouped in [negative,positive,above average performance]
+check out
+Finance::NASDAQ::Markets
+which gives additional sectors and indice's
+
+=head2 EXPORT
+
+None by default.
+
+=head1 SEE ALSO
+
+Finance::Optical::StrongBuy
+Finance::NASDAQ::Markets
+
+
+=head2 MORE
 
 #!/usr/bin/perl
 package main;
@@ -263,3 +296,20 @@ print Dumper [@idx,@sec,@sector ,$new];
 
 
 1;
+
+=head1 AUTHOR
+
+Hagen Geissler
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2012 by Hagen Geissler
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.12.4 or,
+at your option, any later version of Perl 5 you may have available.
+
+
+=cut
+
+
