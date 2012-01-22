@@ -1,4 +1,4 @@
-Finance-Google-Sector-Mean version 0.02
+Finance-Google-Sector-Mean version 0.06
 ======================================
 
 The README is used to introduce the module and provide instructions on
@@ -25,32 +25,12 @@ To install this module type the following:
 
 RUN
 
-
-#!/usr/bin/perl
-package main;
-
-use Data::Dumper;
-use Finance::Optical::StrongBuy;
-use Finance::NASDAQ::Markets;
-use Finance::Google::Sector::Mean;
-
-
-
-
-my @sector = sectorsummary();
-
-my @idx = index();
-
-my @sec = sector();
-
-
-
-my $new = Finance::Optical::StrongBuy->new("/tmp");
-foreach my $symbol (qw/C BAC WFC WM F GE AAPL GOOG/){
-    $new->callCheck($symbol);
-}
-
-print Dumper [@idx,@sec,@sector ,$new];
+	use Data::Dumper;
+	use Finance::Google::Sector::Mean;
+	
+	my @sector = sectorsummary();
+	
+	print Dumper [@sector];
 
 
 
@@ -59,31 +39,34 @@ print Dumper [@idx,@sec,@sector ,$new];
 
 This module requires these other modules and libraries:
 
-
-#!/usr/bin/perl
-package main;
-
-use Data::Dumper;
-use Finance::Optical::StrongBuy;
-use Finance::NASDAQ::Markets;
-use Finance::Google::Sector::Mean;
+	LWP::Simple
+        Statistics::Basic
+        HTML::TreeBuilder
+        List::Util
 
 
+MORE
 
-
-my @sector = sectorsummary();
-
-my @idx = index();
-
-my @sec = sector();
+	use Data::Dumper;
+	use Finance::Optical::StrongBuy;
+	use Finance::NASDAQ::Markets;
+	use Finance::Google::Sector::Mean;
 
 
 
-my $new = Finance::Optical::StrongBuy->new("/tmp");
-foreach my $symbol (qw/C BAC WFC WM F GE AAPL GOOG/){
-    $new->callCheck($symbol);
-}
 
-print Dumper [@idx,@sec,@sector ,$new];
+	my @sector = sectorsummary();
+	my @idx = index();
+	my @sec = sector();
 
-1;
+
+	my $new = Finance::Optical::StrongBuy->new("/tmp");
+	foreach my $symbol (qw/C BAC WFC WM F GE AAPL GOOG/){
+	    $new->callCheck($symbol);
+	}
+
+	print Dumper [@idx,@sec,@sector ,$new];
+
+	1;
+
+
