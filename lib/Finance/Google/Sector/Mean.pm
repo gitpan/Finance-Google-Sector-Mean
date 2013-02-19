@@ -28,7 +28,7 @@ our @EXPORT = qw(
 sectorsummary
 );
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 
 

@@ -1,6 +1,10 @@
-Changes
-Makefile.PL
+LICENSE
 MANIFEST
+META.yml
+Makefile.PL
 README
-t/Finance-Google-Sector-Mean.t
+README.txt
+dist.ini
+lib/Finance/Google/Sector/CookBook.pod
 lib/Finance/Google/Sector/Mean.pm
+t/Finance-Google-Sector-Mean.t
